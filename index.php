@@ -187,7 +187,8 @@ add_action( 'phpmailer_init', 'mailer_config', 10, 1);
 add_action('admin_menu', 'snpn_menu');
 
 function snpn_menu() {
-    add_menu_page('Simple New Post Notification', 'New post notification', 'administrator', 'snpn-plugin', 'snpn_settings_page', 'dashicons-email-alt');
+//    add_menu_page('Simple New Post Notification', 'New post notification', 'administrator', 'snpn-plugin', 'snpn_settings_page', 'dashicons-email-alt');
+    add_options_page('Simple New Post Notification', 'New post notification', 'administrator', 'snpn-plugin', 'snpn_settings_page');
 }
 
 function snpn_settings_page() { ?>
