@@ -35,7 +35,7 @@ function snpn_post_meta_boxes_setup() {
         add_action('add_meta_boxes', 'snpn_add_post_meta_boxes');
 
         /* Save post meta on the 'save_post' hook. */
-        add_action( 'save_post', 'snpn_save_post_notification_meta', 10, 2 );
+        // add_action( 'save_post', 'snpn_save_post_notification_meta', 10, 2 );
     }
 }
 
@@ -108,7 +108,8 @@ function post_published_notification( $ID, $post ) {
     write_log('Post published');
 
     // If the option is checked in the post
-    if(get_post_meta($ID, 'snpn_post_notification', true )){
+    if(isset( $_POST['snpn-post-notification'] ) && sanitize_html_class( $_POST['snpn-post-notification'] ) == 'true') {
+    // if(get_post_meta($ID, 'snpn_post_notification', true )){
         write_log('Send mail');
 
         $title = $post->post_title;
